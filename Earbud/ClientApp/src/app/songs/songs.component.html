@@ -1,0 +1,20 @@
+<h1>David Bowie Songs</h1>
+
+<p *ngIf="!(songs$ | async)"><em>Loading . . .</em></p>
+
+<div class="form-group mb-4">
+    <input class="form-control" type="text" [(ngModel)]="searchText" placeholder="Search">
+</div>
+
+<div class="list-group list-group-flush">
+    <div *ngFor="let song of (songs$ | async) | textSearch:searchText:'title'"
+        class="list-group-item">
+        <div class="row">
+            <img class="col-md-auto rounded shadow-sm" src="{{ song.image }}" />
+            <div class="col">
+                <h4>{{ song.title }}</h4>
+                <p>{{ song.album }}</p>
+            </div>
+        </div>
+    </div>
+</div>
