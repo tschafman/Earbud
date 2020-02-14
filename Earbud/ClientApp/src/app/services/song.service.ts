@@ -18,6 +18,7 @@ export class SongService {
     this.appURL = environment.appUrl;
   }
 
+  // Observables are returned by Angular's HttpClients.
   getSongs(): Observable<Song[]> {
     return this.http.get<Song[]>(this.appURL + this.apiURL).pipe(catchError(this.errorHandler));
   }

@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 export class SongsComponent implements OnInit {
 
   songs$: Observable<Song[]>;
-  searchText: string;
+  searchText: string; // Input element
 
   constructor(private songService: SongService) { }
 
